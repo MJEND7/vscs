@@ -1,0 +1,60 @@
+{
+  "name": "vscs",
+  "displayName": "vscs",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.69.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:vscs.setup",
+    "onCommand:vscs.send",
+    "onCommand:vscs.create"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscs.create",
+        "title": "VSCS_Create"
+      },
+      {
+        "command": "vscs.send",
+        "title": "VSCS_Run"
+      },
+      {
+        "command": "vscs.setup",
+        "title": "VSCS_Setup"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile && NODE_ENV=dev",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.69.0",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "@vscode/test-electron": "^2.1.5",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.20.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "discord.js": "^14.1.2"
+  }
+}
